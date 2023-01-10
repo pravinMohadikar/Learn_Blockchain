@@ -4,6 +4,7 @@ pragma solidity ^0.8.17;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+
 // Insert, update, read from array of structs 
 contract TodoList is ReentrancyGuard, Ownable {
     enum TodoStatus {
@@ -20,6 +21,7 @@ contract TodoList is ReentrancyGuard, Ownable {
 
     Todo[] public todos;
 
+    // To create a todo
     function create(string calldata _text)  external onlyOwner nonReentrant {
         todos.push(Todo({
             text: _text,
